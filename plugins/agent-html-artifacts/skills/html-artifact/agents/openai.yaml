@@ -1,0 +1,9 @@
+interface:
+  display_name: "HTML Artifact"
+  short_description: "Render long agent output as useful HTML"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#0F766E"
+  default_prompt: "Use $html-artifact to turn this long review into a self-contained HTML artifact."
+policy:
+  allow_implicit_invocation: true

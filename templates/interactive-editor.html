@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Artifact Editor</title>
+  <style>
+    :root { --bg:#f7f6f2; --ink:#1f2933; --muted:#65717c; --line:#d9d4ca; --panel:#fff; --accent:#0f766e; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:ui-sans-serif,system-ui,sans-serif; line-height:1.5; }
+    header, main { max-width:1100px; margin:0 auto; padding:24px; }
+    h1 { margin:0 0 8px; font-size:38px; letter-spacing:0; }
+    .board { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .lane { background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px; min-height:220px; }
+    .item { border:1px solid var(--line); border-radius:6px; padding:10px; margin:8px 0; background:#fbfaf7; cursor:grab; }
+    button { background:var(--accent); color:white; border:0; border-radius:6px; padding:8px 11px; font-weight:700; cursor:pointer; }
+    textarea { width:100%; min-height:180px; margin-top:16px; font:13px ui-monospace,monospace; }
+    @media(max-width:860px){ .board{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interactive Artifact Editor</h1>
+    <p>Drag items between lanes, then export the state as Markdown or JSON for the agent.</p>
+    <button id="export-json">Export JSON</button>
+    <button id="export-md">Export Markdown</button>
+  </header>
+  <main>
+    <div class="board" id="board"></div>
+    <textarea id="output" aria-label="Export output"></textarea>
+  </main>
+  <script>
+    const lanes = ["Now", "Next", "Later", "Cut"];
+    const items = [
+      { id: "item-1", title: "Replace this item", lane: "Now" },
+      { id: "item-2", title: "Add real project data", lane: "Next" }
+    ];
+    const board = document.getElementById("board");
+    function render() {
+      board.innerHTML = lanes.map((lane) => `<section class="lane" data-lane="${lane}"><h2>${lane}</h2>${items.filter((item) => item.lane === lane).map((item) => `<div class="item" draggable="true" data-id="${item.id}">${item.title}</div>`).join("")}</section>`).join("");
+    }
+    board.addEventListener("dragstart", (event) => {
+      if (event.target.classList.contains("item")) event.dataTransfer.setData("text/plain", event.target.dataset.id);
+    });
+    board.addEventListener("dragover", (event) => event.preventDefault());
+    board.addEventListener("drop", (event) => {
+      const lane = event.target.closest(".lane");
+      if (!lane) return;
+      const item = items.find((candidate) => candidate.id === event.dataTransfer.getData("text/plain"));
+      if (item) item.lane = lane.dataset.lane;
+      render();
+    });
+    document.getElementById("export-json").onclick = () => {
+      document.getElementById("output").value = JSON.stringify(items, null, 2);
+    };
+    document.getElementById("export-md").onclick = () => {
+      document.getElementById("output").value = lanes.map((lane) => `## ${lane}\n${items.filter((item) => item.lane === lane).map((item) => `- ${item.title}`).join("\n")}`).join("\n\n");
+    };
+    render();
+  </script>
+</body>
+</html>

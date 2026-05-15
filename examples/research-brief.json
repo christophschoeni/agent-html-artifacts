@@ -1,0 +1,32 @@
+{
+  "type": "Research Brief",
+  "title": "HTML Artifacts vs Markdown Output",
+  "summary": "Use Markdown or JSON as canonical source and HTML as the human-facing view when output gets long, visual, or interactive.",
+  "sections": [
+    {
+      "title": "Recommendation",
+      "body": "Adopt a hybrid workflow: source in Markdown or JSON, rendered artifact in self-contained HTML."
+    },
+    {
+      "title": "Why HTML Helps",
+      "items": [
+        "Long reports become easier to scan.",
+        "Tables, timelines, callouts, and SVG diagrams preserve structure.",
+        "Throwaway editors let humans manipulate state and export it back."
+      ]
+    },
+    {
+      "title": "Risks",
+      "cards": [
+        {
+          "title": "Noisy diffs",
+          "body": "HTML should not become the only canonical source for durable specifications."
+        },
+        {
+          "title": "Token cost",
+          "body": "Generate HTML only when it materially improves human review."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "agent-html-artifacts",
+  "version": "0.1.0",
+  "description": "Create self-contained HTML artifacts for long human-facing agent output while preserving Markdown or JSON as the source of truth.",
+  "author": {
+    "name": "Christoph Schoeni",
+    "url": "https://github.com/christophschoeni"
+  },
+  "homepage": "https://github.com/christophschoeni/agent-html-artifacts",
+  "repository": "https://github.com/christophschoeni/agent-html-artifacts",
+  "license": "MIT",
+  "keywords": [
+    "html",
+    "markdown",
+    "codex",
+    "agent-skills",
+    "documentation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Agent HTML Artifacts",
+    "shortDescription": "Rich HTML outputs for long agent work",
+    "longDescription": "A portable workflow for creating self-contained HTML plans, reviews, research briefs, module maps, and throwaway editors while keeping Markdown or JSON as the canonical agent-readable source.",
+    "developerName": "Agent HTML Artifacts",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/christophschoeni/agent-html-artifacts",
+    "privacyPolicyURL": "https://github.com/christophschoeni/agent-html-artifacts#privacy",
+    "termsOfServiceURL": "https://github.com/christophschoeni/agent-html-artifacts#license",
+    "defaultPrompt": [
+      "Use $html-artifact to render this long plan as HTML.",
+      "Create an HTML PR review artifact from this diff.",
+      "Build a throwaway HTML triage editor."
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  }
+}

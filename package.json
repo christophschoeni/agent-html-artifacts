@@ -1,0 +1,33 @@
+{
+  "name": "agent-html-artifacts",
+  "version": "0.1.0",
+  "description": "Portable Codex and Claude workflow for turning long agent outputs into self-contained HTML artifacts while keeping source context in Markdown or JSON.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christophschoeni/agent-html-artifacts.git"
+  },
+  "homepage": "https://github.com/christophschoeni/agent-html-artifacts",
+  "bugs": {
+    "url": "https://github.com/christophschoeni/agent-html-artifacts/issues"
+  },
+  "bin": {
+    "agent-html-artifacts": "./scripts/install.mjs"
+  },
+  "scripts": {
+    "install:codex": "node scripts/install.mjs codex",
+    "install:claude": "node scripts/install.mjs claude",
+    "install:gemini": "node scripts/install.mjs gemini",
+    "install:all": "node scripts/install.mjs all",
+    "validate": "node scripts/validate.mjs",
+    "demo": "node skills/html-artifact/scripts/render-artifact.mjs examples/research-brief.json examples/research-brief.html"
+  },
+  "keywords": [
+    "codex",
+    "claude-code",
+    "agent-skills",
+    "html-artifacts",
+    "markdown"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="HTML artifact icon">
+  <rect width="128" height="128" rx="24" fill="#0f766e"/>
+  <path d="M28 34h72v60H28z" fill="#f7f6f2"/>
+  <path d="M40 50h48M40 64h30M40 78h42" stroke="#1f2933" stroke-width="8" stroke-linecap="round"/>
+  <path d="M86 70l10 8-10 8" fill="none" stroke="#b45309" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

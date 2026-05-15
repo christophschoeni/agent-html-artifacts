@@ -1,0 +1,12 @@
+description = "Create a self-contained HTML artifact while preserving Markdown or JSON as source."
+prompt = """
+Use the html-artifact workflow for the user's request.
+
+Rules:
+- Keep durable source in Markdown, JSON, or YAML.
+- Use self-contained HTML for long human-facing plans, reviews, research briefs, module maps, reports, and throwaway editors.
+- Add export buttons for structured or interactive outputs.
+- Avoid external dependencies unless explicitly requested.
+
+The user's raw command is appended below your instructions.
+"""
