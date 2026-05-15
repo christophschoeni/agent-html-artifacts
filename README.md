@@ -14,6 +14,26 @@ The default rule in this package:
 
 ## Install
 
+Install directly from GitHub with `npx`:
+
+```bash
+npx --yes github:christophschoeni/agent-html-artifacts all
+```
+
+Install only one target:
+
+```bash
+npx --yes github:christophschoeni/agent-html-artifacts codex
+npx --yes github:christophschoeni/agent-html-artifacts claude
+npx --yes github:christophschoeni/agent-html-artifacts gemini
+```
+
+Equivalent explicit `npm exec` form:
+
+```bash
+npm exec --yes --package github:christophschoeni/agent-html-artifacts agent-html-artifacts -- all
+```
+
 From a cloned repo:
 
 ```bash
@@ -30,8 +50,10 @@ npm run install:all
 Test the installer without touching your real home directories:
 
 ```bash
-AGENT_HTML_ARTIFACTS_HOME=/tmp/aha-test node scripts/install.mjs all
+AGENT_HTML_ARTIFACTS_HOME=/tmp/aha-test npx --yes github:christophschoeni/agent-html-artifacts all
 ```
+
+Review the repository before running the installer if you are installing from the network. The package does not require API keys or credentials.
 
 ## What Gets Installed
 
